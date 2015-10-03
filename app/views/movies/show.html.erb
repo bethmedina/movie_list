@@ -1,0 +1,14 @@
+<h1><%= @movie.title %></h1>
+<p><strong>Rated:</strong> <%= @movie.rated %></p>
+<p>
+<% @movie.stars.times do %>
+  <i class="glyphicon glyphicon-star-empty"></i>
+<% end %>
+</p>
+<p><strong>Description:</strong><br>
+  <%= @movie.description %>
+</p>
+<p>
+  <%= link_to "Edit", edit_movie_path(@movie) %> |
+  <%= link_to "Delete", @movie, method: :delete %>
+</p>

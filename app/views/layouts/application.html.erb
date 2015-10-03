@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MovieList</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <header>
+  <ul class = 'nav pull-right navbar-nav'>
+    <li><%= link_to "Home", movies_path %></li>
+    <li><%= link_to "Add Movie", new_movie_path %></li>
+  </ul>
+</header>
+
+<%= yield %>
+
+</div>
+</body>
+</html>

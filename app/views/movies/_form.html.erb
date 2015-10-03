@@ -1,0 +1,50 @@
+<%= form_for @movie, :html => {:class => "form-horizontal"} do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h3>
+      <ul>
+        <% @movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :genre, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :genre, options_for_select(genres, @movie.genre) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :rated, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :rated, options_for_select(ratings, @movie.rated) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :stars, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :stars, options_for_select(stars, @movie.stars) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :description, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description, size: '60x6' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.submit %>
+  </div>
+<% end %>
