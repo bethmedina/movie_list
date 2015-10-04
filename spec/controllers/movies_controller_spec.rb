@@ -36,7 +36,9 @@ describe MoviesController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:movie) { FactoryGirl.create(:movie) }
+    before :each do
+      @movie = FactoryGirl.create(:movie)
+    end
 
     it 'shows the correct movie' do
       get :show, id: movie
